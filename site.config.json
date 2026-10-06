@@ -1,0 +1,18 @@
+{
+  "about": [
+    "The values of the public site that only its owner knows. Edit them here and run",
+    "npm run site:build: scripts/build-site.mjs stamps them into every page.",
+    "contactEmail, appStoreUrl and googlePlayUrl start empty. While one is empty the pages say so in",
+    "plain words (\"Coming soon to the App Store\", no dead link) and the build lists it as still to set.",
+    "The store addresses are the app's own pages: https://apps.apple.com/app/id... and",
+    "https://play.google.com/store/apps/details?id=com.davidprasinos.palermo, once each is live.",
+    "siteUrl is where the site is served. Links between the pages are relative and do not use it;",
+    "only the canonical, hreflang and share-image addresses in each page's head do.",
+    "developer is the name the privacy policy and the footer give for who makes the app."
+  ],
+  "siteUrl": "https://prasinosdavid.github.io/palermo/",
+  "developer": "David Prasinos",
+  "contactEmail": "",
+  "appStoreUrl": "",
+  "googlePlayUrl": ""
+}

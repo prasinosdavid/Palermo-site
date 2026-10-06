@@ -1,0 +1,288 @@
+<!doctype html>
+<!-- Built by scripts/build-site.mjs from site/src/. Edit the source and run npm run site:build. -->
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Night Falls on Palermo: the app that deals the roles</title>
+    <meta name="description" content="The app deals the secret roles for Palermo, the Greek take on Mafia. One phone for the whole table. Offline, no account, no ads." />
+    <meta name="theme-color" content="#121018" />
+    <meta name="color-scheme" content="dark" />
+
+    <link rel="canonical" href="https://prasinosdavid.github.io/palermo/" />
+    <link rel="alternate" hreflang="en" href="https://prasinosdavid.github.io/palermo/" />
+    <link rel="alternate" hreflang="el" href="https://prasinosdavid.github.io/palermo/el/" />
+    <link rel="alternate" hreflang="x-default" href="https://prasinosdavid.github.io/palermo/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Night Falls on Palermo" />
+    <meta property="og:title" content="Night Falls on Palermo: the app that deals the roles" />
+    <meta property="og:description" content="The app deals the secret roles for Palermo, the Greek take on Mafia. One phone for the whole table. Offline, no account, no ads." />
+    <meta property="og:url" content="https://prasinosdavid.github.io/palermo/" />
+    <meta property="og:locale" content="en_US" />
+    <meta property="og:locale:alternate" content="el_GR" />
+    <meta property="og:image" content="https://prasinosdavid.github.io/palermo/assets/share-en.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Enamel and gold role medallions on a dark table, beside the crest and the name Night Falls on Palermo." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Night Falls on Palermo: the app that deals the roles" />
+    <meta name="twitter:description" content="The app deals the secret roles for Palermo, the Greek take on Mafia. One phone for the whole table. Offline, no account, no ads." />
+    <meta name="twitter:image" content="https://prasinosdavid.github.io/palermo/assets/share-en.jpg" />
+    <meta name="twitter:image:alt" content="Enamel and gold role medallions on a dark table, beside the crest and the name Night Falls on Palermo." />
+
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="assets/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="assets/apple-touch-icon.png" />
+    <link rel="preload" href="assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="assets/fonts/noto-serif-display-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="assets/site.css" />
+
+    <script>
+      // The language rule of the app, for the site. The English page is every page's default
+      // address: a reader whose browser lists Greek, or who chose Greek here before, is taken
+      // to the Greek page. A choice made with the switch is remembered in this browser and wins.
+      // Without JavaScript the switch is an ordinary link and nothing else changes.
+      ;(function (lang, greekPage) {
+        var KEY = 'palermo.site.lang'
+        var chosen = null
+        try {
+          chosen = localStorage.getItem(KEY)
+        } catch (error) {}
+        var languages = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || '']
+        var greek = chosen
+          ? chosen === 'el'
+          : languages.some(function (tag) {
+              return /^el/i.test(tag)
+            })
+        if (lang === 'en' && greek) location.replace(greekPage + location.hash)
+        document.addEventListener('click', function (event) {
+          var link = event.target.closest ? event.target.closest('a[data-lang]') : null
+          if (!link) return
+          try {
+            localStorage.setItem(KEY, link.getAttribute('data-lang'))
+          } catch (error) {}
+        })
+      })('en', 'el/')
+    </script>
+  </head>
+  <body class="page-home">
+    <a class="skip" href="#content">Skip to the content</a>
+
+    <header class="top">
+      <a class="brand" href="./" aria-label="Night Falls on Palermo, home"><svg class="crest" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 60V32A29 29 0 0 1 32 3.43A29 29 0 0 1 56 32V60"/><path d="M5 60H59"/><path d="M8 44H16M12 44V40.5M16 60V32L20 18L24 32V60M20 37V42M24 44H40M24 44A8 8 0 0 1 40 44M32 36V32.5M29 60V55A6 6 0 0 1 32 49.8A6 6 0 0 1 35 55V60M40 60V32L44 18L48 32V60M44 37V42M48 44H56M52 44V40.5"/><path fill="currentColor" stroke-width="1" d="M31.81 8.06A6.6 6.6 0 1 0 38.98 16.62A5.6 5.6 0 1 1 31.81 8.06Z"/><path fill="currentColor" stroke-width="0.6" d="M12.4 26L13.7 28L12.4 30L11.1 28ZM51.6 26L52.9 28L51.6 30L50.3 28Z"/></svg><span>Night Falls on Palermo</span></a>
+      <nav class="lang" aria-label="Language">
+        <a href="./" lang="en" hreflang="en" data-lang="en" aria-label="English" aria-current="true"><span aria-hidden="true">EN</span></a>
+        <a href="el/" lang="el" hreflang="el" data-lang="el" aria-label="Ελληνικά"><span aria-hidden="true">ΕΛ</span></a>
+      </nav>
+    </header>
+
+    <main id="content">
+      <section class="hero">
+        <picture class="hero-art">
+          <source media="(min-width: 880px)" srcset="assets/img/hero-wide-1280.webp 1280w, assets/img/hero-wide-2048.webp 2048w" sizes="clamp(1180px, 102.4vw, 1507px)" width="2048" height="1000" />
+          <img src="assets/img/hero-tall-660.webp" srcset="assets/img/hero-tall-660.webp 660w, assets/img/hero-tall-990.webp 990w" sizes="100vw" width="990" height="2151" alt="" fetchpriority="high" decoding="async" />
+        </picture>
+        <div class="hero-in">
+          <svg class="crest" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M8 60V32A29 29 0 0 1 32 3.43A29 29 0 0 1 56 32V60"/>
+            <path d="M5 60H59"/>
+            <path d="M8 44H16M12 44V40.5M16 60V32L20 18L24 32V60M20 37V42M24 44H40M24 44A8 8 0 0 1 40 44M32 36V32.5M29 60V55A6 6 0 0 1 32 49.8A6 6 0 0 1 35 55V60M40 60V32L44 18L48 32V60M44 37V42M48 44H56M52 44V40.5"/>
+            <path fill="currentColor" stroke-width="1" d="M31.81 8.06A6.6 6.6 0 1 0 38.98 16.62A5.6 5.6 0 1 1 31.81 8.06Z"/>
+            <path fill="currentColor" stroke-width="0.6" d="M12.4 26L13.7 28L12.4 30L11.1 28ZM51.6 26L52.9 28L51.6 30L50.3 28Z"/>
+          </svg>
+          <h1 class="wordmark">
+            <span class="sr">Night Falls on Palermo</span>
+            <span class="wordmark-top" aria-hidden="true">NIGHT FALLS ON</span>
+            <span class="wordmark-main" aria-hidden="true">PALERMO</span>
+          </h1>
+          <div class="hero-words">
+            <svg class="pip" viewBox="0 0 64 8" aria-hidden="true" focusable="false">
+              <path d="M0 4H24M40 4H64" stroke="currentColor" stroke-width="1" fill="none" />
+              <path d="M32 0L34.6 4L32 8L29.4 4Z" fill="currentColor" />
+            </svg>
+            <p class="tagline">Deals the roles</p>
+            <p class="lede">For Palermo, the Greek take on Mafia. One phone for the whole table.</p>
+            <ul class="stores" role="list" aria-label="Where to get the app">
+              <li class="soon">Coming soon to the App Store</li>
+              <li class="soon">Coming soon to Google Play</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap" aria-labelledby="how">
+        <div class="section-head">
+          <h2 id="how">How it works</h2>
+        </div>
+        <ol class="beats" role="list">
+          <li class="beat">
+            <figure class="phone">
+              <img src="assets/img/shot-en-players-440.webp" srcset="assets/img/shot-en-players-440.webp 440w, assets/img/shot-en-players-880.webp 880w" sizes="(min-width: 1280px) 264px, (min-width: 1040px) 22vw, (min-width: 700px) 224px, 40vw" width="880" height="1912" alt="The Players screen: eight names in a list, and the button “Continue · 8 players”." loading="lazy" decoding="async" />
+            </figure>
+            <h3>Add the players</h3>
+            <p>
+              Add everyone playing, the narrator too. From 4 to 30 players. The phone remembers the names for next time.
+            </p>
+          </li>
+          <li class="beat">
+            <figure class="phone">
+              <img src="assets/img/shot-en-roles-440.webp" srcset="assets/img/shot-en-roles-440.webp 440w, assets/img/shot-en-roles-880.webp 880w" sizes="(min-width: 1280px) 264px, (min-width: 1040px) 22vw, (min-width: 700px) 224px, 40vw" width="880" height="1912" alt="The Roles screen: a switch beside each role." loading="lazy" decoding="async" />
+            </figure>
+            <h3>Pick the roles</h3>
+            <p>Or take the ones the app suggests. Citizens fill the rest.</p>
+          </li>
+          <li class="beat">
+            <figure class="phone">
+              <img src="assets/img/shot-en-hold-440.webp" srcset="assets/img/shot-en-hold-440.webp 440w, assets/img/shot-en-hold-880.webp 880w" sizes="(min-width: 1280px) 264px, (min-width: 1040px) 22vw, (min-width: 700px) 224px, 40vw" width="880" height="1912" alt="A role card held face up: the Doctor, with the line “Saves one player each night.”" loading="lazy" decoding="async" />
+            </figure>
+            <h3>Pass the phone around</h3>
+            <p>Each player holds the card to see their role. Let go and it hides.</p>
+          </li>
+          <li class="beat">
+            <figure class="phone">
+              <img src="assets/img/shot-en-table-440.webp" srcset="assets/img/shot-en-table-440.webp 440w, assets/img/shot-en-table-880.webp 880w" sizes="(min-width: 1280px) 264px, (min-width: 1040px) 22vw, (min-width: 700px) 224px, 40vw" width="880" height="1912" alt="The Table screen: the eight names and no roles, above the button “Play again”." loading="lazy" decoding="async" />
+            </figure>
+            <h3>Put it down and play</h3>
+            <p>For another game, hold “Play again”.</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section wrap" aria-labelledby="roles">
+        <div class="section-head">
+          <h2 id="roles">The nine roles</h2>
+          <p>The town, the killers, and one who plays alone.</p>
+        </div>
+        <div class="sides">
+          <div class="side">
+            <h3>Town</h3>
+            <ul class="coins" role="list">
+              <li class="coin">
+                <img src="assets/img/role-citizen-128.webp" srcset="assets/img/role-citizen-128.webp 128w, assets/img/role-citizen-256.webp 256w" sizes="(min-width: 700px) 120px, 72px" width="256" height="256" alt="" loading="lazy" decoding="async" />
+                <p>
+                  <strong class="coin-name">Citizen</strong>
+                  <span class="coin-line">Find the killers.</span>
+                </p>
+              </li>
+              <li class="coin">
+                <img src="assets/img/role-policeman-128.webp" srcset="assets/img/role-policeman-128.webp 128w, assets/img/role-policeman-256.webp 256w" sizes="(min-width: 700px) 120px, 72px" width="256" height="256" alt="" loading="lazy" decoding="async" />
+                <p>
+                  <strong class="coin-name">Policeman</strong>
+                  <span class="coin-line">Knows the Snitch.</span>
+                </p>
+              </li>
+              <li class="coin">
+                <img src="assets/img/role-doctor-128.webp" srcset="assets/img/role-doctor-128.webp 128w, assets/img/role-doctor-256.webp 256w" sizes="(min-width: 700px) 120px, 72px" width="256" height="256" alt="" loading="lazy" decoding="async" />
+                <p>
+                  <strong class="coin-name">Doctor</strong>
+                  <span class="coin-line">Saves one player each night.</span>
+                </p>
+              </li>
+              <li class="coin">
+                <img src="assets/img/role-red-kamikaze-128.webp" srcset="assets/img/role-red-kamikaze-128.webp 128w, assets/img/role-red-kamikaze-256.webp 256w" sizes="(min-width: 700px) 120px, 72px" width="256" height="256" alt="" loading="lazy" decoding="async" />
+                <p>
+                  <strong class="coin-name">Red Kamikaze</strong>
+                  <span class="coin-line">Voted out? Takes one player along.</span>
+                </p>
+              </li>
+              <li class="coin">
+                <img src="assets/img/role-black-kamikaze-128.webp" srcset="assets/img/role-black-kamikaze-128.webp 128w, assets/img/role-black-kamikaze-256.webp 256w" sizes="(min-width: 700px) 120px, 72px" width="256" height="256" alt="" loading="lazy" decoding="async" />
+                <p>
+                  <strong class="coin-name">Black Kamikaze</strong>
+                  <span class="coin-line">Killed at night? Takes one player along.</span>
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="side">
+            <h3>Killers</h3>
+            <ul class="coins" role="list">
+              <li class="coin">
+                <img src="assets/img/role-red-killer-128.webp" srcset="assets/img/role-red-killer-128.webp 128w, assets/img/role-red-killer-256.webp 256w" sizes="(min-width: 700px) 120px, 72px" width="256" height="256" alt="" loading="lazy" decoding="async" />
+                <p>
+                  <strong class="coin-name">Red Killer</strong>
+                  <span class="coin-line">Kills at night.</span>
+                </p>
+              </li>
+              <li class="coin">
+                <img src="assets/img/role-black-killer-128.webp" srcset="assets/img/role-black-killer-128.webp 128w, assets/img/role-black-killer-256.webp 256w" sizes="(min-width: 700px) 120px, 72px" width="256" height="256" alt="" loading="lazy" decoding="async" />
+                <p>
+                  <strong class="coin-name">Black Killer</strong>
+                  <span class="coin-line">Kills at night.</span>
+                </p>
+              </li>
+              <li class="coin">
+                <img src="assets/img/role-snitch-128.webp" srcset="assets/img/role-snitch-128.webp 128w, assets/img/role-snitch-256.webp 256w" sizes="(min-width: 700px) 120px, 72px" width="256" height="256" alt="" loading="lazy" decoding="async" />
+                <p>
+                  <strong class="coin-name">Snitch</strong>
+                  <span class="coin-line">Knows the Red Killer.</span>
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="side">
+            <h3>Alone</h3>
+            <ul class="coins" role="list">
+              <li class="coin">
+                <img src="assets/img/role-paranoid-128.webp" srcset="assets/img/role-paranoid-128.webp 128w, assets/img/role-paranoid-256.webp 256w" sizes="(min-width: 700px) 120px, 72px" width="256" height="256" alt="" loading="lazy" decoding="async" />
+                <p>
+                  <strong class="coin-name">Paranoid</strong>
+                  <span class="coin-line">Wants to be voted out.</span>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap" aria-labelledby="not">
+        <div class="stance">
+          <h2 id="not">What the app does not do</h2>
+          <div class="stance-text">
+            <p>
+              It deals the roles and shows the rules. It does not narrate, keep time, count votes or name a winner. You play
+              the game at the table.
+            </p>
+          </div>
+        </div>
+        <div class="stance">
+          <h3>Privacy</h3>
+          <div class="stance-text">
+            <p>The app collects nothing and sends nothing anywhere. It works offline, with no account and no ads.</p>
+            <p>
+              It keeps three things on your phone: the list of players, the current deal and the names saved from earlier
+              games. Hold “Clear list” to remove the list and the deal. Hold a saved name to forget it, or hold
+              “Forget all names” to forget them all. Deleting the app removes everything.
+            </p>
+            <p><a href="privacy.html">Privacy policy</a></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap closing" aria-labelledby="closing">
+        <h2 id="closing">Get the app</h2>
+        <ul class="stores" role="list" aria-label="Where to get the app">
+          <li class="soon">Coming soon to the App Store</li>
+          <li class="soon">Coming soon to Google Play</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="foot-in">
+        <a class="brand" href="./" aria-label="Night Falls on Palermo, home"><svg class="crest" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 60V32A29 29 0 0 1 32 3.43A29 29 0 0 1 56 32V60"/><path d="M5 60H59"/><path d="M8 44H16M12 44V40.5M16 60V32L20 18L24 32V60M20 37V42M24 44H40M24 44A8 8 0 0 1 40 44M32 36V32.5M29 60V55A6 6 0 0 1 32 49.8A6 6 0 0 1 35 55V60M40 60V32L44 18L48 32V60M44 37V42M48 44H56M52 44V40.5"/><path fill="currentColor" stroke-width="1" d="M31.81 8.06A6.6 6.6 0 1 0 38.98 16.62A5.6 5.6 0 1 1 31.81 8.06Z"/><path fill="currentColor" stroke-width="0.6" d="M12.4 26L13.7 28L12.4 30L11.1 28ZM51.6 26L52.9 28L51.6 30L50.3 28Z"/></svg><span>Night Falls on Palermo</span></a>
+        <nav aria-label="Site">
+          <ul>
+            <li><a href="privacy.html">Privacy</a></li>
+            <li><a href="support.html">Support</a></li>
+            <li><a href="licenses.txt" hreflang="en" type="text/plain">Open-source licences</a></li>
+            <li><a href="el/" lang="el" hreflang="el" data-lang="el">Ελληνικά</a></li>
+          </ul>
+        </nav>
+        <p class="fine">© David Prasinos. App Store and iPhone are trademarks of Apple Inc. Google Play and Android are trademarks of Google LLC.</p>
+      </div>
+    </footer>
+  </body>
+</html>

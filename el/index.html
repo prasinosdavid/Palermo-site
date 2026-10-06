@@ -1,0 +1,292 @@
+<!doctype html>
+<!-- Built by scripts/build-site.mjs from site/src/. Edit the source and run npm run site:build. -->
+<html lang="el">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Πέφτει νύχτα στο Παλέρμο: η εφαρμογή που μοιράζει τους ρόλους</title>
+    <meta name="description" content="Η εφαρμογή μοιράζει τους κρυφούς ρόλους για το Παλέρμο, το παιχνίδι που αλλού το λένε Μαφία. Ένα κινητό για όλη την παρέα. Χωρίς ίντερνετ, χωρίς λογαριασμό, χωρίς διαφημίσεις." />
+    <meta name="theme-color" content="#121018" />
+    <meta name="color-scheme" content="dark" />
+
+    <link rel="canonical" href="https://prasinosdavid.github.io/palermo/el/" />
+    <link rel="alternate" hreflang="en" href="https://prasinosdavid.github.io/palermo/" />
+    <link rel="alternate" hreflang="el" href="https://prasinosdavid.github.io/palermo/el/" />
+    <link rel="alternate" hreflang="x-default" href="https://prasinosdavid.github.io/palermo/" />
+
+    <meta property="og:type" content="website" />
+    <meta property="og:site_name" content="Πέφτει νύχτα στο Παλέρμο" />
+    <meta property="og:title" content="Πέφτει νύχτα στο Παλέρμο: η εφαρμογή που μοιράζει τους ρόλους" />
+    <meta property="og:description" content="Η εφαρμογή μοιράζει τους κρυφούς ρόλους για το Παλέρμο, το παιχνίδι που αλλού το λένε Μαφία. Ένα κινητό για όλη την παρέα. Χωρίς ίντερνετ, χωρίς λογαριασμό, χωρίς διαφημίσεις." />
+    <meta property="og:url" content="https://prasinosdavid.github.io/palermo/el/" />
+    <meta property="og:locale" content="el_GR" />
+    <meta property="og:locale:alternate" content="en_US" />
+    <meta property="og:image" content="https://prasinosdavid.github.io/palermo/assets/share-el.jpg" />
+    <meta property="og:image:type" content="image/jpeg" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Μετάλλια ρόλων από σμάλτο και χρυσό πάνω σε σκοτεινό τραπέζι, δίπλα στο έμβλημα και το όνομα «Πέφτει νύχτα στο Παλέρμο»." />
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Πέφτει νύχτα στο Παλέρμο: η εφαρμογή που μοιράζει τους ρόλους" />
+    <meta name="twitter:description" content="Η εφαρμογή μοιράζει τους κρυφούς ρόλους για το Παλέρμο, το παιχνίδι που αλλού το λένε Μαφία. Ένα κινητό για όλη την παρέα. Χωρίς ίντερνετ, χωρίς λογαριασμό, χωρίς διαφημίσεις." />
+    <meta name="twitter:image" content="https://prasinosdavid.github.io/palermo/assets/share-el.jpg" />
+    <meta name="twitter:image:alt" content="Μετάλλια ρόλων από σμάλτο και χρυσό πάνω σε σκοτεινό τραπέζι, δίπλα στο έμβλημα και το όνομα «Πέφτει νύχτα στο Παλέρμο»." />
+
+    <link rel="icon" href="../assets/favicon.svg" type="image/svg+xml" />
+    <link rel="icon" href="../assets/favicon-32.png" type="image/png" sizes="32x32" />
+    <link rel="apple-touch-icon" href="../assets/apple-touch-icon.png" />
+    <link rel="preload" href="../assets/fonts/inter-latin-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="../assets/fonts/noto-serif-display-latin-wdth-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="../assets/fonts/inter-greek-wght-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="preload" href="../assets/fonts/noto-serif-display-greek-wdth-normal.woff2" as="font" type="font/woff2" crossorigin />
+    <link rel="stylesheet" href="../assets/site.css" />
+
+    <script>
+      // The language rule of the app, for the site. The English page is every page's default
+      // address: a reader whose browser lists Greek, or who chose Greek here before, is taken
+      // to the Greek page. A choice made with the switch is remembered in this browser and wins.
+      // Without JavaScript the switch is an ordinary link and nothing else changes.
+      ;(function (lang, greekPage) {
+        var KEY = 'palermo.site.lang'
+        var chosen = null
+        try {
+          chosen = localStorage.getItem(KEY)
+        } catch (error) {}
+        var languages = navigator.languages && navigator.languages.length ? navigator.languages : [navigator.language || '']
+        var greek = chosen
+          ? chosen === 'el'
+          : languages.some(function (tag) {
+              return /^el/i.test(tag)
+            })
+        if (lang === 'en' && greek) location.replace(greekPage + location.hash)
+        document.addEventListener('click', function (event) {
+          var link = event.target.closest ? event.target.closest('a[data-lang]') : null
+          if (!link) return
+          try {
+            localStorage.setItem(KEY, link.getAttribute('data-lang'))
+          } catch (error) {}
+        })
+      })('el', './')
+    </script>
+  </head>
+  <body class="page-home">
+    <a class="skip" href="#content">Μετάβαση στο περιεχόμενο</a>
+
+    <header class="top">
+      <a class="brand" href="./" aria-label="Πέφτει νύχτα στο Παλέρμο, αρχική σελίδα"><svg class="crest" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 60V32A29 29 0 0 1 32 3.43A29 29 0 0 1 56 32V60"/><path d="M5 60H59"/><path d="M8 44H16M12 44V40.5M16 60V32L20 18L24 32V60M20 37V42M24 44H40M24 44A8 8 0 0 1 40 44M32 36V32.5M29 60V55A6 6 0 0 1 32 49.8A6 6 0 0 1 35 55V60M40 60V32L44 18L48 32V60M44 37V42M48 44H56M52 44V40.5"/><path fill="currentColor" stroke-width="1" d="M31.81 8.06A6.6 6.6 0 1 0 38.98 16.62A5.6 5.6 0 1 1 31.81 8.06Z"/><path fill="currentColor" stroke-width="0.6" d="M12.4 26L13.7 28L12.4 30L11.1 28ZM51.6 26L52.9 28L51.6 30L50.3 28Z"/></svg><span>Πέφτει νύχτα στο Παλέρμο</span></a>
+      <nav class="lang" aria-label="Γλώσσα">
+        <a href="../" lang="en" hreflang="en" data-lang="en" aria-label="English"><span aria-hidden="true">EN</span></a>
+        <a href="./" lang="el" hreflang="el" data-lang="el" aria-label="Ελληνικά" aria-current="true"><span aria-hidden="true">ΕΛ</span></a>
+      </nav>
+    </header>
+
+    <main id="content">
+      <section class="hero">
+        <picture class="hero-art">
+          <source media="(min-width: 880px)" srcset="../assets/img/hero-wide-1280.webp 1280w, ../assets/img/hero-wide-2048.webp 2048w" sizes="clamp(1180px, 102.4vw, 1507px)" width="2048" height="1000" />
+          <img src="../assets/img/hero-tall-660.webp" srcset="../assets/img/hero-tall-660.webp 660w, ../assets/img/hero-tall-990.webp 990w" sizes="100vw" width="990" height="2151" alt="" fetchpriority="high" decoding="async" />
+        </picture>
+        <div class="hero-in">
+          <svg class="crest" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false">
+            <path d="M8 60V32A29 29 0 0 1 32 3.43A29 29 0 0 1 56 32V60"/>
+            <path d="M5 60H59"/>
+            <path d="M8 44H16M12 44V40.5M16 60V32L20 18L24 32V60M20 37V42M24 44H40M24 44A8 8 0 0 1 40 44M32 36V32.5M29 60V55A6 6 0 0 1 32 49.8A6 6 0 0 1 35 55V60M40 60V32L44 18L48 32V60M44 37V42M48 44H56M52 44V40.5"/>
+            <path fill="currentColor" stroke-width="1" d="M31.81 8.06A6.6 6.6 0 1 0 38.98 16.62A5.6 5.6 0 1 1 31.81 8.06Z"/>
+            <path fill="currentColor" stroke-width="0.6" d="M12.4 26L13.7 28L12.4 30L11.1 28ZM51.6 26L52.9 28L51.6 30L50.3 28Z"/>
+          </svg>
+          <h1 class="wordmark">
+            <span class="sr">Πέφτει νύχτα στο Παλέρμο</span>
+            <span class="wordmark-top" aria-hidden="true">ΠΕΦΤΕΙ ΝΥΧΤΑ ΣΤΟ</span>
+            <span class="wordmark-main" aria-hidden="true">ΠΑΛΕΡΜΟ</span>
+          </h1>
+          <div class="hero-words">
+            <svg class="pip" viewBox="0 0 64 8" aria-hidden="true" focusable="false">
+              <path d="M0 4H24M40 4H64" stroke="currentColor" stroke-width="1" fill="none" />
+              <path d="M32 0L34.6 4L32 8L29.4 4Z" fill="currentColor" />
+            </svg>
+            <p class="tagline">Μοιράζει τους ρόλους</p>
+            <p class="lede">Για το Παλέρμο, το παιχνίδι που αλλού το λένε Μαφία. Ένα κινητό για όλη την παρέα.</p>
+            <ul class="stores" role="list" aria-label="Πού θα βρεις την εφαρμογή">
+              <li class="soon">Σύντομα στο App Store</li>
+              <li class="soon">Σύντομα στο Google Play</li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap" aria-labelledby="how">
+        <div class="section-head">
+          <h2 id="how">Πώς δουλεύει</h2>
+        </div>
+        <ol class="beats" role="list">
+          <li class="beat">
+            <figure class="phone">
+              <img src="../assets/img/shot-el-players-440.webp" srcset="../assets/img/shot-el-players-440.webp 440w, ../assets/img/shot-el-players-880.webp 880w" sizes="(min-width: 1280px) 264px, (min-width: 1040px) 22vw, (min-width: 700px) 224px, 40vw" width="880" height="1912" alt="Η οθόνη «Παίκτες»: οκτώ ονόματα σε λίστα και το κουμπί «Συνέχεια · 8 παίκτες»." loading="lazy" decoding="async" />
+            </figure>
+            <h3>Γράψε τους παίκτες</h3>
+            <p>
+              Γράψε όλους όσοι παίζουν, και τον αφηγητή. Από 4 μέχρι 30 παίκτες. Το κινητό θυμάται τα ονόματα για την
+              επόμενη φορά.
+            </p>
+          </li>
+          <li class="beat">
+            <figure class="phone">
+              <img src="../assets/img/shot-el-roles-440.webp" srcset="../assets/img/shot-el-roles-440.webp 440w, ../assets/img/shot-el-roles-880.webp 880w" sizes="(min-width: 1280px) 264px, (min-width: 1040px) 22vw, (min-width: 700px) 224px, 40vw" width="880" height="1912" alt="Η οθόνη «Ρόλοι»: ένας διακόπτης δίπλα σε κάθε ρόλο." loading="lazy" decoding="async" />
+            </figure>
+            <h3>Διάλεξε ρόλους</h3>
+            <p>Ή κράτα αυτούς που προτείνει η εφαρμογή. Οι υπόλοιποι είναι πολίτες.</p>
+          </li>
+          <li class="beat">
+            <figure class="phone">
+              <img src="../assets/img/shot-el-hold-440.webp" srcset="../assets/img/shot-el-hold-440.webp 440w, ../assets/img/shot-el-hold-880.webp 880w" sizes="(min-width: 1280px) 264px, (min-width: 1040px) 22vw, (min-width: 700px) 224px, 40vw" width="880" height="1912" alt="Μια κάρτα ρόλου ανοιχτή: ο Γιατρός, με τη φράση «Σώζει έναν κάθε νύχτα.»" loading="lazy" decoding="async" />
+            </figure>
+            <h3>Από χέρι σε χέρι</h3>
+            <p>Καθένας κρατάει πατημένη την κάρτα και βλέπει τον ρόλο του. Μόλις την αφήσει, κρύβεται.</p>
+          </li>
+          <li class="beat">
+            <figure class="phone">
+              <img src="../assets/img/shot-el-table-440.webp" srcset="../assets/img/shot-el-table-440.webp 440w, ../assets/img/shot-el-table-880.webp 880w" sizes="(min-width: 1280px) 264px, (min-width: 1040px) 22vw, (min-width: 700px) 224px, 40vw" width="880" height="1912" alt="Η οθόνη «Τραπέζι»: τα οκτώ ονόματα χωρίς κανέναν ρόλο, πάνω από το κουμπί «Πάμε ξανά»." loading="lazy" decoding="async" />
+            </figure>
+            <h3>Άσε το κινητό και ξεκίνα</h3>
+            <p>Για άλλο παιχνίδι, κράτα πατημένο το «Πάμε ξανά».</p>
+          </li>
+        </ol>
+      </section>
+
+      <section class="section wrap" aria-labelledby="roles">
+        <div class="section-head">
+          <h2 id="roles">Οι εννιά ρόλοι</h2>
+          <p>Η πόλη, οι δολοφόνοι, κι ένας που παίζει μόνος του.</p>
+        </div>
+        <div class="sides">
+          <div class="side">
+            <h3>Πόλη</h3>
+            <ul class="coins" role="list">
+              <li class="coin">
+                <img src="../assets/img/role-citizen-128.webp" srcset="../assets/img/role-citizen-128.webp 128w, ../assets/img/role-citizen-256.webp 256w" sizes="(min-width: 700px) 120px, 72px" width="256" height="256" alt="" loading="lazy" decoding="async" />
+                <p>
+                  <strong class="coin-name">Πολίτης</strong>
+                  <span class="coin-line">Βρες τους δολοφόνους.</span>
+                </p>
+              </li>
+              <li class="coin">
+                <img src="../assets/img/role-policeman-128.webp" srcset="../assets/img/role-policeman-128.webp 128w, ../assets/img/role-policeman-256.webp 256w" sizes="(min-width: 700px) 120px, 72px" width="256" height="256" alt="" loading="lazy" decoding="async" />
+                <p>
+                  <strong class="coin-name">Αστυνόμος</strong>
+                  <span class="coin-line">Ξέρει τον Ρουφιάνο.</span>
+                </p>
+              </li>
+              <li class="coin">
+                <img src="../assets/img/role-doctor-128.webp" srcset="../assets/img/role-doctor-128.webp 128w, ../assets/img/role-doctor-256.webp 256w" sizes="(min-width: 700px) 120px, 72px" width="256" height="256" alt="" loading="lazy" decoding="async" />
+                <p>
+                  <strong class="coin-name">Γιατρός</strong>
+                  <span class="coin-line">Σώζει έναν κάθε νύχτα.</span>
+                </p>
+              </li>
+              <li class="coin">
+                <img src="../assets/img/role-red-kamikaze-128.webp" srcset="../assets/img/role-red-kamikaze-128.webp 128w, ../assets/img/role-red-kamikaze-256.webp 256w" sizes="(min-width: 700px) 120px, 72px" width="256" height="256" alt="" loading="lazy" decoding="async" />
+                <p>
+                  <strong class="coin-name">Κόκκινος Καμικάζι</strong>
+                  <span class="coin-line">Αν τον ψηφίσουν, παίρνει έναν μαζί του.</span>
+                </p>
+              </li>
+              <li class="coin">
+                <img src="../assets/img/role-black-kamikaze-128.webp" srcset="../assets/img/role-black-kamikaze-128.webp 128w, ../assets/img/role-black-kamikaze-256.webp 256w" sizes="(min-width: 700px) 120px, 72px" width="256" height="256" alt="" loading="lazy" decoding="async" />
+                <p>
+                  <strong class="coin-name">Μαύρος Καμικάζι</strong>
+                  <span class="coin-line">Αν τον σκοτώσουν, παίρνει έναν μαζί του.</span>
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="side">
+            <h3>Δολοφόνοι</h3>
+            <ul class="coins" role="list">
+              <li class="coin">
+                <img src="../assets/img/role-red-killer-128.webp" srcset="../assets/img/role-red-killer-128.webp 128w, ../assets/img/role-red-killer-256.webp 256w" sizes="(min-width: 700px) 120px, 72px" width="256" height="256" alt="" loading="lazy" decoding="async" />
+                <p>
+                  <strong class="coin-name">Κόκκινος Δολοφόνος</strong>
+                  <span class="coin-line">Σκοτώνει τη νύχτα.</span>
+                </p>
+              </li>
+              <li class="coin">
+                <img src="../assets/img/role-black-killer-128.webp" srcset="../assets/img/role-black-killer-128.webp 128w, ../assets/img/role-black-killer-256.webp 256w" sizes="(min-width: 700px) 120px, 72px" width="256" height="256" alt="" loading="lazy" decoding="async" />
+                <p>
+                  <strong class="coin-name">Μαύρος Δολοφόνος</strong>
+                  <span class="coin-line">Σκοτώνει τη νύχτα.</span>
+                </p>
+              </li>
+              <li class="coin">
+                <img src="../assets/img/role-snitch-128.webp" srcset="../assets/img/role-snitch-128.webp 128w, ../assets/img/role-snitch-256.webp 256w" sizes="(min-width: 700px) 120px, 72px" width="256" height="256" alt="" loading="lazy" decoding="async" />
+                <p>
+                  <strong class="coin-name">Ρουφιάνος</strong>
+                  <span class="coin-line">Ξέρει τον Κόκκινο Δολοφόνο.</span>
+                </p>
+              </li>
+            </ul>
+          </div>
+          <div class="side">
+            <h3>Μόνος</h3>
+            <ul class="coins" role="list">
+              <li class="coin">
+                <img src="../assets/img/role-paranoid-128.webp" srcset="../assets/img/role-paranoid-128.webp 128w, ../assets/img/role-paranoid-256.webp 256w" sizes="(min-width: 700px) 120px, 72px" width="256" height="256" alt="" loading="lazy" decoding="async" />
+                <p>
+                  <strong class="coin-name">Παρανοϊκός</strong>
+                  <span class="coin-line">Θέλει να τον ψηφίσουν.</span>
+                </p>
+              </li>
+            </ul>
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap" aria-labelledby="not">
+        <div class="stance">
+          <h2 id="not">Τι δεν κάνει η εφαρμογή</h2>
+          <div class="stance-text">
+            <p>
+              Μοιράζει τους ρόλους και δείχνει τους κανόνες. Δεν αφηγείται, δεν χρονομετράει, δεν μετράει ψήφους και δεν
+              βγάζει νικητή. Το παιχνίδι το παίζει η παρέα.
+            </p>
+          </div>
+        </div>
+        <div class="stance">
+          <h3>Απόρρητο</h3>
+          <div class="stance-text">
+            <p>Η εφαρμογή δεν μαζεύει και δεν στέλνει τίποτα πουθενά. Δουλεύει χωρίς ίντερνετ, χωρίς λογαριασμό και χωρίς διαφημίσεις.</p>
+            <p>
+              Στο κινητό σου κρατάει τρία πράγματα: τη λίστα με τους παίκτες, τη μοιρασιά και τα αποθηκευμένα ονόματα από
+              προηγούμενα παιχνίδια. Κράτα πατημένο το «Καθάρισε τη λίστα» για να σβήσεις τη λίστα και τη μοιρασιά.
+              Κράτα πατημένο ένα αποθηκευμένο όνομα για να το σβήσεις, ή το «Σβήσε όλα τα ονόματα» για να τα σβήσεις
+              όλα. Αν διαγράψεις την εφαρμογή, σβήνονται όλα.
+            </p>
+            <p><a href="privacy.html">Πολιτική απορρήτου</a></p>
+          </div>
+        </div>
+      </section>
+
+      <section class="section wrap closing" aria-labelledby="closing">
+        <h2 id="closing">Κατέβασε την εφαρμογή</h2>
+        <ul class="stores" role="list" aria-label="Πού θα βρεις την εφαρμογή">
+          <li class="soon">Σύντομα στο App Store</li>
+          <li class="soon">Σύντομα στο Google Play</li>
+        </ul>
+      </section>
+    </main>
+
+    <footer class="foot">
+      <div class="foot-in">
+        <a class="brand" href="./" aria-label="Πέφτει νύχτα στο Παλέρμο, αρχική σελίδα"><svg class="crest" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true" focusable="false"><path d="M8 60V32A29 29 0 0 1 32 3.43A29 29 0 0 1 56 32V60"/><path d="M5 60H59"/><path d="M8 44H16M12 44V40.5M16 60V32L20 18L24 32V60M20 37V42M24 44H40M24 44A8 8 0 0 1 40 44M32 36V32.5M29 60V55A6 6 0 0 1 32 49.8A6 6 0 0 1 35 55V60M40 60V32L44 18L48 32V60M44 37V42M48 44H56M52 44V40.5"/><path fill="currentColor" stroke-width="1" d="M31.81 8.06A6.6 6.6 0 1 0 38.98 16.62A5.6 5.6 0 1 1 31.81 8.06Z"/><path fill="currentColor" stroke-width="0.6" d="M12.4 26L13.7 28L12.4 30L11.1 28ZM51.6 26L52.9 28L51.6 30L50.3 28Z"/></svg><span>Πέφτει νύχτα στο Παλέρμο</span></a>
+        <nav aria-label="Ιστότοπος">
+          <ul>
+            <li><a href="privacy.html">Απόρρητο</a></li>
+            <li><a href="support.html">Υποστήριξη</a></li>
+            <li><a href="../licenses.txt" hreflang="en" type="text/plain">Άδειες ανοιχτού κώδικα</a></li>
+            <li><a href="../" lang="en" hreflang="en" data-lang="en">English</a></li>
+          </ul>
+        </nav>
+        <p class="fine">© David Prasinos. Τα App Store και iPhone είναι εμπορικά σήματα της Apple Inc. Τα Google Play και Android είναι εμπορικά σήματα της Google LLC.</p>
+      </div>
+    </footer>
+  </body>
+</html>

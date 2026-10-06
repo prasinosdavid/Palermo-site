@@ -1,0 +1,957 @@
+/* The public site of Night Falls on Palermo (Πέφτει νύχτα στο Παλέρμο): one stylesheet for the
+   landing page, the privacy policy and the support page, in both languages.
+   scripts/build-site.mjs copies it to assets/site.css.
+
+   It is the app's own world (docs/spec/04-build.md → Design): velvet dark, ivory, aged gold,
+   hairlines, Noto Serif Display over Inter. Colours and radii are the tokens of src/app/theme.css.
+   Greek decides every measure: no capitals made by CSS, nothing truncates, headings wrap.
+   Only transform and opacity ever move, and not at all with reduced motion. */
+
+/* The four font files the app ships: Greek and Latin subsets of the two variable faces. */
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('fonts/inter-greek-wght-normal.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Inter Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  src: url('fonts/inter-latin-wght-normal.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
+    U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+@font-face {
+  font-family: 'Noto Serif Display Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  font-stretch: 62.5% 100%;
+  src: url('fonts/noto-serif-display-greek-wdth-normal.woff2') format('woff2');
+  unicode-range: U+0370-0377, U+037A-037F, U+0384-038A, U+038C, U+038E-03A1, U+03A3-03FF;
+}
+@font-face {
+  font-family: 'Noto Serif Display Variable';
+  font-style: normal;
+  font-display: swap;
+  font-weight: 100 900;
+  font-stretch: 62.5% 100%;
+  src: url('fonts/noto-serif-display-latin-wdth-normal.woff2') format('woff2');
+  unicode-range:
+    U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+0304, U+0308, U+0329, U+2000-206F,
+    U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
+}
+
+:root {
+  --deep: #0b0a10;
+  --page: #121018;
+  --raised: #1a1722;
+  --fg: #f2efe8;
+  --muted: #a9a4b3;
+  --subtle: #8a8594;
+  --gold: #d9b45b;
+  --gold-text: #e6c979;
+  --ink: #0b0a10;
+  --hairline: rgba(255, 255, 255, 0.1);
+  --gilt: rgba(217, 180, 91, 0.4);
+
+  --display: 'Noto Serif Display Variable', 'Noto Serif Display', Georgia, 'Times New Roman', serif;
+  --text: 'Inter Variable', Inter, system-ui, -apple-system, Roboto, 'Helvetica Neue', Arial, sans-serif;
+
+  /* The page's side margin, and the column everything but the hero's picture keeps to. */
+  --gutter: clamp(1.25rem, 5vw, 4rem);
+  --column: 72rem;
+  --section: clamp(4.5rem, 11vw, 8rem);
+
+  --ease-out: cubic-bezier(0.22, 1, 0.36, 1);
+
+  /* How the hero's render ends: it has no edge anywhere, it dims into the velvet. Each is a mask
+     in six eased steps, because a straight ramp from the page's violet to the render's studio
+     grey shows where it starts. Down the picture on a phone; down and across it on a wide screen. */
+  --dim-tall: linear-gradient(
+    180deg,
+    transparent 0%, rgba(0, 0, 0, 0.05) 3.2%, rgba(0, 0, 0, 0.22) 6.4%, rgba(0, 0, 0, 0.55) 9.6%, rgba(0, 0, 0, 0.87) 12.8%, #000 16%,
+    #000 86%, rgba(0, 0, 0, 0.87) 88.8%, rgba(0, 0, 0, 0.55) 91.6%, rgba(0, 0, 0, 0.22) 94.4%, rgba(0, 0, 0, 0.05) 97.2%, transparent 100%
+  );
+  --dim-wide-down: linear-gradient(
+    180deg,
+    transparent 0%, rgba(0, 0, 0, 0.05) 4%, rgba(0, 0, 0, 0.22) 8%, rgba(0, 0, 0, 0.55) 12%, rgba(0, 0, 0, 0.87) 16%, #000 20%,
+    #000 80%, rgba(0, 0, 0, 0.87) 84%, rgba(0, 0, 0, 0.55) 88%, rgba(0, 0, 0, 0.22) 92%, rgba(0, 0, 0, 0.05) 96%, transparent 100%
+  );
+  --dim-wide-across: linear-gradient(
+    90deg,
+    transparent 20%, rgba(0, 0, 0, 0.05) 24%, rgba(0, 0, 0, 0.22) 28%, rgba(0, 0, 0, 0.55) 32%, rgba(0, 0, 0, 0.87) 36%, #000 40%,
+    #000 84%, rgba(0, 0, 0, 0.87) 87.2%, rgba(0, 0, 0, 0.55) 90.4%, rgba(0, 0, 0, 0.22) 93.6%, rgba(0, 0, 0, 0.05) 96.8%, transparent 100%
+  );
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+html {
+  background: var(--deep);
+  color-scheme: dark;
+  -webkit-text-size-adjust: 100%;
+  text-size-adjust: 100%;
+  -webkit-tap-highlight-color: transparent;
+}
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  min-height: 100dvh;
+  display: flex;
+  flex-direction: column;
+  color: var(--fg);
+  font-family: var(--text);
+  font-size: 1rem;
+  line-height: 1.6;
+  /* The app's own cut of Inter: the single-storey a and the round punctuation. */
+  font-feature-settings: 'cv11', 'ss03';
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* The app's page gradient, held still behind everything that scrolls. */
+body::before {
+  content: '';
+  position: fixed;
+  inset: 0;
+  z-index: -1;
+  background: linear-gradient(180deg, var(--page) 0%, var(--deep) 100%);
+}
+
+main {
+  flex: 1;
+}
+
+h1,
+h2,
+h3 {
+  margin: 0;
+  font-family: var(--display);
+  font-weight: 650;
+  font-stretch: 90%;
+  font-optical-sizing: auto;
+  line-height: 1.2;
+  text-wrap: balance;
+}
+
+h2 {
+  font-size: clamp(1.875rem, 1.3rem + 2.4vw, 3rem);
+  line-height: 1.14;
+}
+
+h3 {
+  font-size: 1.375rem;
+  line-height: 1.3;
+}
+
+p {
+  margin: 0;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+
+a {
+  color: var(--gold-text);
+  text-decoration-line: underline;
+  text-decoration-thickness: 1px;
+  text-underline-offset: 0.2em;
+}
+a:hover {
+  color: var(--fg);
+}
+
+/* The app's focus ring: 2 pt of gold, 2 pt away. */
+:focus-visible {
+  outline: 2px solid var(--gold);
+  outline-offset: 2px;
+}
+:focus:not(:focus-visible) {
+  outline: none;
+}
+
+.sr {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  clip-path: inset(50%);
+  white-space: nowrap;
+  border: 0;
+}
+
+.skip {
+  position: absolute;
+  top: 0.75rem;
+  left: var(--gutter);
+  z-index: 3;
+  padding: 0.75rem 1rem;
+  border-radius: 0.75rem;
+  background: var(--gold);
+  color: var(--ink);
+  font-weight: 600;
+  text-decoration: none;
+  transform: translateY(-200%);
+}
+.skip:focus {
+  transform: none;
+}
+.skip:hover {
+  color: var(--ink);
+}
+
+.wrap {
+  width: min(100% - 2 * var(--gutter), var(--column));
+  margin-inline: auto;
+}
+
+/* The diamond rule of the app's card face: the pip of the crest's two stars between two lines. */
+.pip {
+  display: block;
+  width: 4rem;
+  height: 0.5rem;
+  color: var(--gold);
+  opacity: 0.6;
+}
+
+/* ---------------------------------------------------------------------------------------------
+   Header: the name on the left (not on the landing page, whose hero carries it), the app's
+   language pill on the right.
+   --------------------------------------------------------------------------------------------- */
+
+.top {
+  position: relative;
+  z-index: 2;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1rem;
+  width: min(100% - 2 * var(--gutter), var(--column));
+  margin-inline: auto;
+  padding-block: 0.75rem;
+}
+
+.brand {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  /* Beside the language pill the name may break into two lines before it pushes anything out. */
+  min-width: 0;
+  min-height: 3rem;
+  color: var(--fg);
+  font-family: var(--display);
+  font-weight: 650;
+  font-stretch: 90%;
+  font-size: 1.125rem;
+  line-height: 1.3;
+  text-decoration: none;
+}
+.brand:hover {
+  color: var(--gold-text);
+}
+.brand .crest {
+  flex: none;
+  width: 2.25rem;
+  height: 2.25rem;
+  color: var(--gold);
+  stroke-width: 3;
+}
+
+.lang {
+  display: inline-flex;
+  flex: none;
+  margin-left: auto;
+  border: 1px solid var(--hairline);
+  border-radius: 999px;
+  background: rgba(11, 10, 16, 0.55);
+}
+/* The target is 48 pt; the chip inside it is what looks chosen. */
+.lang a {
+  display: grid;
+  place-items: center;
+  width: 3rem;
+  height: 3rem;
+  border-radius: 999px;
+  color: var(--muted);
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: 0.025em;
+  text-decoration: none;
+}
+.lang a span {
+  display: grid;
+  place-items: center;
+  min-width: 2.25rem;
+  height: 2.25rem;
+  padding: 0 0.5rem;
+  border-radius: 999px;
+}
+.lang a:hover {
+  color: var(--fg);
+}
+.lang a[aria-current] {
+  color: var(--fg);
+}
+.lang a[aria-current] span {
+  background: var(--raised);
+  box-shadow: inset 0 0 0 1px var(--hairline);
+}
+
+/* On the landing page the header lies over the hero. */
+.page-home .top {
+  position: absolute;
+  inset: 0 0 auto;
+}
+.page-home .top .brand {
+  display: none;
+}
+
+/* ---------------------------------------------------------------------------------------------
+   Hero. The medallions are the picture; the words stand in the dark the render leaves free:
+   above the coins on a phone (hero-tall), to their left on a wide screen (hero-wide).
+   --------------------------------------------------------------------------------------------- */
+
+.hero {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  overflow: clip;
+  /* How much of the tall render shows at the bottom of the hero. Its coins fill the lower 1.27
+     of its width, so on a phone this is the coins with a strip of empty table above them. */
+  --coins: min(150vw, 46rem);
+}
+
+.hero-art {
+  position: absolute;
+  inset: auto 0 0;
+  z-index: -1;
+  height: var(--coins);
+  -webkit-mask-image: var(--dim-tall);
+  mask-image: var(--dim-tall);
+}
+.hero-art img {
+  width: 100%;
+  height: 100%;
+  max-width: none;
+  object-fit: cover;
+  object-position: 50% 100%;
+}
+
+.hero-in {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: min(100% - 2 * var(--gutter), var(--column));
+  margin-inline: auto;
+  /* The words end where the first coins begin: under the strip of empty table on a phone, and
+     at the top of the picture once it has reached its full height. */
+  padding: 5.5rem 0 min(129vw, 46rem);
+  text-align: center;
+}
+
+.hero .crest {
+  width: clamp(5.5rem, 26vw, 7.5rem);
+  height: auto;
+  aspect-ratio: 1;
+  color: var(--gold);
+  stroke-width: 2.4;
+}
+
+/* The wordmark is the app's: the name of the game in the language of the page, a small tracked
+   lead over the big name (home.wordmarkLead and home.wordmarkName in src/strings, which store the
+   capitals as written: capitals are never made with CSS, and Greek ones carry no tonos). Neither
+   line wraps, and the lead stands inside the width of the name in both languages. The left padding
+   of each line equals its tracking, which would otherwise push centred capitals off centre. Its
+   size follows the width of a narrow screen and nothing else, so no text size can push it over
+   the edge. */
+.wordmark {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 1.5rem;
+  white-space: nowrap;
+}
+.wordmark-top {
+  padding-left: 0.34em;
+  font-size: min(4.8vw, 1.25rem);
+  line-height: 1.4;
+  letter-spacing: 0.34em;
+  color: var(--gold-text);
+}
+.wordmark-main {
+  margin-top: 0.25rem;
+  padding-left: 0.08em;
+  font-size: min(15vw, 5rem);
+  line-height: 1.05;
+  letter-spacing: 0.08em;
+}
+
+.hero .pip {
+  margin-top: 1.25rem;
+}
+
+.tagline {
+  margin-top: 1rem;
+  font-family: var(--display);
+  font-weight: 600;
+  font-stretch: 90%;
+  font-size: clamp(1.25rem, 1rem + 1.2vw, 1.625rem);
+  line-height: 1.3;
+  text-wrap: balance;
+}
+
+.lede {
+  max-width: 27rem;
+  margin-top: 1rem;
+  color: var(--muted);
+  font-size: 1.0625rem;
+  text-wrap: pretty;
+}
+
+/* The lockup rises as the app's Home does at launch: three steps, 160 ms apart. */
+@media (prefers-reduced-motion: no-preference) {
+  .hero .crest,
+  .hero .wordmark,
+  .hero-words {
+    animation: rise 900ms var(--ease-out) both;
+  }
+  .hero .crest {
+    animation-delay: 100ms;
+  }
+  .hero .wordmark {
+    animation-delay: 260ms;
+  }
+  .hero-words {
+    animation-delay: 420ms;
+  }
+}
+@keyframes rise {
+  from {
+    opacity: 0;
+    transform: translateY(10px);
+  }
+}
+
+.hero-words {
+  display: flex;
+  flex-direction: column;
+  align-items: inherit;
+}
+
+@media (min-width: 880px) {
+  .hero {
+    display: flex;
+    align-items: center;
+    min-height: clamp(36rem, 50vw, 46rem);
+    /* Where the words end, measured from the left edge of the hero: the picture starts its coins
+       just beyond. The words' own column is 27rem wide. */
+    --words-end: calc(max(var(--gutter), (100% - var(--column)) / 2) + 27rem);
+  }
+
+  /* The render is as tall as the hero and placed, not stretched to cover: it starts where the
+     words end and is then pulled back by a third of its own width, the empty table before its
+     first coins, which goes under the words and is faded out. */
+  .hero-art {
+    inset: 0 auto 0 calc(var(--words-end) + 1.5rem);
+    width: auto;
+    height: auto;
+    aspect-ratio: 2048 / 1000;
+    transform: translateX(-33%);
+    -webkit-mask-image: var(--dim-wide-down);
+    mask-image: var(--dim-wide-down);
+  }
+  .hero-art img {
+    object-fit: fill;
+    -webkit-mask-image: var(--dim-wide-across);
+    mask-image: var(--dim-wide-across);
+  }
+
+  .hero-in {
+    align-items: flex-start;
+    padding: 6.5rem 0 5.5rem;
+    text-align: left;
+  }
+  .hero .crest {
+    width: 6.5rem;
+    margin-left: -0.35rem;
+  }
+  .wordmark {
+    align-items: flex-start;
+  }
+  .wordmark-top,
+  .wordmark-main {
+    padding-left: 0;
+  }
+  .hero-words {
+    max-width: 27rem;
+  }
+}
+
+/* ---------------------------------------------------------------------------------------------
+   Store links. A link is the app's gold button; a store the app is not in yet is a plain line.
+   --------------------------------------------------------------------------------------------- */
+
+.stores {
+  /* One column as wide as its longest label, so two buttons are the same button twice. */
+  display: inline-grid;
+  gap: 0.75rem 1rem;
+  margin: 1.75rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+.stores a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  min-height: 3.5rem;
+  padding: 0.75rem 1.5rem;
+  border-radius: 0.75rem;
+  background: var(--gold);
+  box-shadow: 0 0 24px rgba(217, 180, 91, 0.25);
+  color: var(--ink);
+  font-weight: 600;
+  line-height: 1.3;
+  text-align: center;
+  text-decoration: none;
+}
+.stores a:hover {
+  background: var(--gold-text);
+  color: var(--ink);
+}
+@media (prefers-reduced-motion: no-preference) {
+  .stores a {
+    transition: transform 120ms ease-out;
+  }
+  .stores a:active {
+    transform: scale(0.97);
+  }
+}
+.stores .soon {
+  display: flex;
+  align-items: center;
+  gap: 0.625rem;
+  color: var(--muted);
+}
+/* The pip again, as the mark of a line that is not a link. */
+.stores .soon::before {
+  content: '';
+  flex: none;
+  width: 0.5rem;
+  height: 0.5rem;
+  background: var(--gold);
+  opacity: 0.75;
+  transform: scaleX(0.65) rotate(45deg);
+}
+
+/* Where the page is wide and the words are not in the hero's narrow column, the two stand side
+   by side. */
+@media (min-width: 700px) {
+  .closing .stores {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+  }
+}
+
+/* ---------------------------------------------------------------------------------------------
+   Sections of the landing page
+   --------------------------------------------------------------------------------------------- */
+
+.section {
+  padding-block: var(--section) 0;
+}
+.section-head {
+  display: grid;
+  gap: 1rem;
+  max-width: 44rem;
+}
+.section-head p {
+  color: var(--muted);
+  font-size: 1.0625rem;
+  text-wrap: pretty;
+}
+
+/* How it works: four beats, each a screen of the app and what happens on it. The numeral sits in
+   the disc the app puts in front of a player's name. */
+
+.beats {
+  display: grid;
+  gap: 2.75rem 1.5rem;
+  margin: 2.5rem 0 0;
+  padding: 0;
+  list-style: none;
+  counter-reset: beat;
+}
+/* On a phone a beat is the screen with its words beside it, and the screens change sides as the
+   phone changes hands. */
+.beat {
+  display: grid;
+  grid-template-columns: minmax(0, 0.74fr) minmax(0, 1fr);
+  column-gap: 1.25rem;
+  counter-increment: beat;
+}
+.beat .phone {
+  grid-row: 1 / span 2;
+  align-self: center;
+}
+.beat h3 {
+  grid-column: 2;
+  align-self: end;
+}
+.beat p {
+  grid-column: 2;
+  align-self: start;
+  margin-top: 0.5rem;
+  color: var(--muted);
+  text-wrap: pretty;
+}
+.beat:nth-child(even) {
+  grid-template-columns: minmax(0, 1fr) minmax(0, 0.74fr);
+}
+.beat:nth-child(even) .phone {
+  grid-column: 2;
+}
+.beat:nth-child(even) h3,
+.beat:nth-child(even) p {
+  grid-column: 1;
+}
+.beat h3::before {
+  content: counter(beat);
+  display: grid;
+  place-items: center;
+  width: 2rem;
+  height: 2rem;
+  margin-bottom: 0.75rem;
+  border-radius: 999px;
+  background: var(--raised);
+  box-shadow: inset 0 0 0 1px var(--hairline);
+  color: var(--fg);
+  font-family: var(--text);
+  font-size: 0.875rem;
+  font-weight: 600;
+  font-stretch: normal;
+  line-height: 1;
+}
+
+/* A phone the way the store pictures draw it and the app draws a card: a gilt hairline, a plain
+   dark margin, then the screen. No notch, no buttons: it is nobody's phone in particular.
+   The radii are those of marketing/frame.css, as fractions of the picture (880 x 1912). */
+.phone {
+  margin: 0;
+  padding: 1.5%;
+  border: 1px solid rgba(217, 180, 91, 0.6);
+  border-radius: 11.4% / 5.35%;
+  background: #08070c;
+  box-shadow: 0 1.25rem 3rem rgba(0, 0, 0, 0.45);
+}
+.phone img {
+  width: 100%;
+  border-radius: 10.2% / 4.7%;
+}
+
+/* From here a beat is its screen with the words under it: two beats to a row, then all four.
+   The beats of a row share its three lines (screen, title, words), so the texts start level
+   whatever the length of a title. */
+@media (min-width: 700px) {
+  .beats {
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 3.5rem 2.5rem;
+  }
+  .beat,
+  .beat:nth-child(even) {
+    grid-row: span 3;
+    grid-template-rows: subgrid;
+    grid-template-columns: minmax(0, 1fr);
+    row-gap: 0;
+  }
+  .beat .phone,
+  .beat:nth-child(even) .phone {
+    grid-row: auto;
+    grid-column: 1;
+    justify-self: start;
+    width: min(100%, 14rem);
+  }
+  .beat h3,
+  .beat:nth-child(even) h3 {
+    grid-column: 1;
+    align-self: start;
+    margin-top: 1.75rem;
+  }
+  .beat p,
+  .beat:nth-child(even) p {
+    grid-column: 1;
+  }
+}
+@media (min-width: 1040px) {
+  .beats {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    column-gap: 2rem;
+  }
+  .beat .phone,
+  .beat:nth-child(even) .phone {
+    width: 100%;
+  }
+}
+
+/* The roles: the three teams as three rows of coins. On a phone a row is a list, the coin
+   leading each line as it does in the app's role picker. */
+
+.sides {
+  margin-top: 2.5rem;
+}
+.side {
+  display: grid;
+  gap: 1.5rem;
+  padding-block: 2rem;
+  border-top: 1px solid var(--hairline);
+}
+.side:last-child {
+  padding-bottom: 0;
+}
+.side h3 {
+  color: var(--gold-text);
+}
+.coins {
+  display: grid;
+  gap: 1.25rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.coin {
+  display: grid;
+  grid-template-columns: 4.5rem minmax(0, 1fr);
+  align-items: center;
+  gap: 1rem;
+}
+.coin img {
+  width: 100%;
+  /* A coin lies on the table: the short shadow the app also puts under a medallion. */
+  filter: drop-shadow(0 0.25rem 0.35rem rgba(0, 0, 0, 0.5));
+}
+.coin-name {
+  display: block;
+  font-family: var(--display);
+  font-weight: 650;
+  font-stretch: 90%;
+  font-size: 1.25rem;
+  line-height: 1.3;
+}
+.coin-line {
+  display: block;
+  margin-top: 0.125rem;
+  color: var(--muted);
+  font-size: 0.9375rem;
+  line-height: 1.5;
+}
+
+@media (min-width: 700px) {
+  .coins {
+    grid-template-columns: repeat(3, minmax(0, 1fr));
+    gap: 2rem 1.5rem;
+  }
+  .coin {
+    grid-template-columns: minmax(0, 1fr);
+    align-content: start;
+    gap: 1rem;
+  }
+  .coin img {
+    width: 7.5rem;
+    margin-left: -0.2rem;
+  }
+}
+@media (min-width: 1040px) {
+  .side {
+    grid-template-columns: 9rem minmax(0, 1fr);
+    gap: 2rem;
+    padding-block: 2.5rem;
+  }
+  .coins {
+    grid-template-columns: repeat(5, minmax(0, 1fr));
+  }
+}
+
+/* What it is not, and what it keeps to itself: a sentence set large, with its text beside it. */
+
+.stance {
+  display: grid;
+  gap: 1.25rem;
+}
+.stance + .stance {
+  margin-top: 3rem;
+  padding-top: 3rem;
+  border-top: 1px solid var(--hairline);
+}
+.stance h3 {
+  font-size: 1.625rem;
+  line-height: 1.25;
+}
+.stance-text {
+  display: grid;
+  gap: 1rem;
+  max-width: 36rem;
+  color: var(--muted);
+  font-size: 1.0625rem;
+}
+@media (min-width: 880px) {
+  .stance {
+    grid-template-columns: minmax(0, 5fr) minmax(0, 6fr);
+    gap: 4rem;
+  }
+  .stance h2 {
+    max-width: 11em;
+  }
+}
+
+.closing {
+  padding-bottom: var(--section);
+}
+.closing p {
+  max-width: 36rem;
+  margin-top: 0.75rem;
+  color: var(--muted);
+  font-size: 1.0625rem;
+}
+
+/* ---------------------------------------------------------------------------------------------
+   The two text pages: privacy and support
+   --------------------------------------------------------------------------------------------- */
+
+/* A reading column of 40rem that keeps the page's left edge: the name in the header, the title
+   and the text share one axis, as the sections of the landing page do. */
+.prose {
+  width: min(100% - 2 * var(--gutter), var(--column));
+  margin-inline: auto;
+  padding-block: clamp(2.5rem, 8vw, 5rem) var(--section);
+  font-size: 1.0625rem;
+  line-height: 1.7;
+}
+.prose > * {
+  max-width: 40rem;
+}
+.prose h1 {
+  font-size: clamp(2.25rem, 1.6rem + 3vw, 3.5rem);
+  line-height: 1.1;
+}
+.prose .pip {
+  margin-top: 1.5rem;
+}
+.prose h2 {
+  margin-top: 3rem;
+  font-size: 1.625rem;
+  line-height: 1.25;
+}
+.prose h3 {
+  margin-top: 2.25rem;
+  font-size: 1.3125rem;
+}
+.prose p,
+.prose ul {
+  margin-top: 1rem;
+  color: var(--muted);
+}
+.prose h2 + p,
+.prose h3 + p {
+  margin-top: 0.625rem;
+}
+.prose ul {
+  padding-left: 1.25rem;
+}
+.prose li + li {
+  margin-top: 0.375rem;
+}
+.prose li::marker {
+  color: var(--gold);
+}
+.prose .intro {
+  margin-top: 1.5rem;
+  color: var(--fg);
+  font-size: 1.1875rem;
+  line-height: 1.6;
+}
+/* The date a policy counts from, and the address to write to: values, set apart as values. */
+.prose .effective {
+  margin-top: 1.5rem;
+  color: var(--subtle);
+  font-size: 0.9375rem;
+}
+.prose .effective time {
+  color: var(--fg);
+  font-weight: 600;
+}
+.prose .contact {
+  width: fit-content;
+  margin-top: 1rem;
+  padding: 1rem 1.25rem;
+  border: 1px solid var(--gilt);
+  border-radius: 1rem;
+  color: var(--fg);
+  overflow-wrap: anywhere;
+}
+
+/* ---------------------------------------------------------------------------------------------
+   Footer
+   --------------------------------------------------------------------------------------------- */
+
+.foot {
+  border-top: 1px solid var(--hairline);
+}
+.foot-in {
+  display: grid;
+  gap: 1.25rem;
+  width: min(100% - 2 * var(--gutter), var(--column));
+  margin-inline: auto;
+  padding-block: 2rem 2.5rem;
+}
+.foot ul {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0 1.75rem;
+  margin: 0;
+  padding: 0;
+  list-style: none;
+}
+.foot li a {
+  display: inline-flex;
+  align-items: center;
+  min-height: 3rem;
+  color: var(--fg);
+  text-decoration: none;
+}
+.foot li a:hover {
+  color: var(--gold-text);
+  text-decoration: underline;
+}
+.foot li a[aria-current] {
+  color: var(--gold-text);
+}
+.fine {
+  max-width: 44rem;
+  color: var(--subtle);
+  font-size: 0.875rem;
+  line-height: 1.5;
+}
+@media (min-width: 700px) {
+  .foot-in {
+    grid-template-columns: 1fr auto;
+    align-items: center;
+  }
+  .fine {
+    grid-column: 1 / -1;
+  }
+}

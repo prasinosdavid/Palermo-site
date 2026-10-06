@@ -1,0 +1,43 @@
+{
+  "about": [
+    "The words around the pages, in both languages: the header, the footer, the store links and the",
+    "few lines the build writes itself. The pages are in en/ and el/; texts quoted from the app are",
+    "not here, they are read from src/strings at build time ({{app: key}} in a page)."
+  ],
+  "en": {
+    "skip": "Skip to the content",
+    "home": "Night Falls on Palermo, home",
+    "language": "Language",
+    "footer": "Site",
+    "privacy": "Privacy",
+    "support": "Support",
+    "licences": "Open-source licences",
+    "otherLanguage": "Ελληνικά",
+    "store.appStore": "Download on the App Store",
+    "store.googlePlay": "Get it on Google Play",
+    "soon.appStore": "Coming soon to the App Store",
+    "soon.googlePlay": "Coming soon to Google Play",
+    "stores": "Where to get the app",
+    "contactPending": "The contact address will be listed here before the app is released.",
+    "trademarks": "App Store and iPhone are trademarks of Apple Inc. Google Play and Android are trademarks of Google LLC.",
+    "shareAlt": "Enamel and gold role medallions on a dark table, beside the crest and the name Night Falls on Palermo."
+  },
+  "el": {
+    "skip": "Μετάβαση στο περιεχόμενο",
+    "home": "Πέφτει νύχτα στο Παλέρμο, αρχική σελίδα",
+    "language": "Γλώσσα",
+    "footer": "Ιστότοπος",
+    "privacy": "Απόρρητο",
+    "support": "Υποστήριξη",
+    "licences": "Άδειες ανοιχτού κώδικα",
+    "otherLanguage": "English",
+    "store.appStore": "Κατέβασέ το από το App Store",
+    "store.googlePlay": "Κατέβασέ το από το Google Play",
+    "soon.appStore": "Σύντομα στο App Store",
+    "soon.googlePlay": "Σύντομα στο Google Play",
+    "stores": "Πού θα βρεις την εφαρμογή",
+    "contactPending": "Η διεύθυνση επικοινωνίας θα γραφτεί εδώ πριν κυκλοφορήσει η εφαρμογή.",
+    "trademarks": "Τα App Store και iPhone είναι εμπορικά σήματα της Apple Inc. Τα Google Play και Android είναι εμπορικά σήματα της Google LLC.",
+    "shareAlt": "Μετάλλια ρόλων από σμάλτο και χρυσό πάνω σε σκοτεινό τραπέζι, δίπλα στο έμβλημα και το όνομα «Πέφτει νύχτα στο Παλέρμο»."
+  }
+}
